@@ -1,18 +1,18 @@
 <template>
   <div class="index-page">
     hello
-    <span>{{ fruitCount }}</span>
   </div>
 </template>
 
 <script>
+import * as traverse from 'traverse'
+
 export default {
   name: "Index",
   data() {
       return {
         loading: false,
         fruitData: null,
-        fruitCount: null,
       };
   },
   methods: {
@@ -22,15 +22,29 @@ export default {
         const baseUrl = 'http://localhost:3000';
         const rawData = await fetch(`${baseUrl}/fruit`);
         const { data } = await rawData.json();
-        console.log(data);
-        this.fruitData = data;
+
+        const fruitCount = data.fruitCount || 0
+        let count = 0;
+
+        const filteredData = [];
+        traverse(data).forEach(
+          function(node) {
+            if (node.isFruit) {
+              filteredData.push(node);
+              count = count + 1;
+              if(fruitCount  === count) {
+                this.stop();
+              }
+            }
+          }
+        )
+        this.fruitData = filteredData;
       }
       catch(err){
         console.log(err);
       }
       finally {
         this.loading = false;
-        this.fruitCount = this.fruitData?.fruitCount || 0;
       }
     }
   },
