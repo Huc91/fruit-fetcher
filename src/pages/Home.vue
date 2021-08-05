@@ -1,6 +1,7 @@
 <template>
   <div class="index-page">
     hello
+    <span>{{ fruitCount }}</span>
   </div>
 </template>
 
@@ -10,14 +11,27 @@ export default {
   data() {
       return {
         loading: false,
+        fruitData: null,
+        fruitCount: null,
       };
   },
   methods: {
     async getFruits(){
-      const baseUrl = 'http://localhost:3000';
-      const rawData = await fetch(`${baseUrl}/fruit`);
-      const data = await rawData.json();
-      console.log(data);
+      this.loading = true;
+      try {
+        const baseUrl = 'http://localhost:3000';
+        const rawData = await fetch(`${baseUrl}/fruit`);
+        const { data } = await rawData.json();
+        console.log(data);
+        this.fruitData = data;
+      }
+      catch(err){
+        console.log(err);
+      }
+      finally {
+        this.loading = false;
+        this.fruitCount = this.fruitData?.fruitCount || 0;
+      }
     }
   },
   created() {
