@@ -17,6 +17,16 @@
 
     <v-card-title>{{ fruit.name }}</v-card-title>
 
+    <v-card-actions>
+      <v-btn
+        color="deep-purple lighten-2"
+        text
+        @click="goToDetail()"
+      >
+        See more about it!
+      </v-btn>
+    </v-card-actions>
+
     </v-card>
     </template>
     <span v-else>Loading...</span>
@@ -65,7 +75,10 @@ export default {
       finally {
         this.loading = false;
       }
-    }
+    },
+    goToDetail(){
+      console.log('pippo');
+    },
   },
   created() {
     this.getFruits();
