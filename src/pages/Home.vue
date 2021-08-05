@@ -41,7 +41,6 @@ export default {
   data() {
       return {
         loading: false,
-        fruitData: null,
       };
   },
   methods: {
@@ -67,7 +66,7 @@ export default {
             }
           }
         )
-        this.fruitData = filteredData;
+        this.$store.commit('setFruits', filteredData);
       }
       catch(err){
         console.log(err);
@@ -80,8 +79,15 @@ export default {
       console.log('pippo');
     },
   },
+  computed: {
+    fruitData(){
+      return this.$store.getters.fruits;
+    }
+  },
   created() {
-    this.getFruits();
+    if(!this.fruitData) {
+      this.getFruits();
+    }
   }
 };
 </script>
