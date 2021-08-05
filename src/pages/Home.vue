@@ -1,6 +1,25 @@
 <template>
   <div class="index-page">
-    hello
+    <h1>My Tuttifrutti party</h1>
+    <template v-if="!loading">
+    <v-card
+      elevation="2"
+      v-for="fruit in fruitData"
+      :key="fruit.id"
+      class="mx-auto my-12"
+      max-width="374"
+    >
+    <v-img
+      height="250"
+      :src="fruit.image"
+    >
+    </v-img>
+
+    <v-card-title>{{ fruit.name }}</v-card-title>
+
+    </v-card>
+    </template>
+    <span v-else>Loading...</span>
   </div>
 </template>
 
