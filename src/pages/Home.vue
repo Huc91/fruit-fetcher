@@ -12,6 +12,7 @@
     <v-img
       height="250"
       :src="fruit.image"
+      :lazy-src="fruit.image"
     >
     </v-img>
 
@@ -21,7 +22,7 @@
       <v-btn
         color="deep-purple lighten-2"
         text
-        @click="goToDetail()"
+        @click="goToDetail(fruit)"
       >
         See more about it!
       </v-btn>
@@ -75,8 +76,9 @@ export default {
         this.loading = false;
       }
     },
-    goToDetail(){
-      console.log('pippo');
+    goToDetail(fruit){
+      this.$store.commit('setDetail', fruit);
+      this.$router.push(`/fruit-detail/${fruit.id}`)
     },
   },
   computed: {

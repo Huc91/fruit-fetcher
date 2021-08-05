@@ -8,7 +8,7 @@
     </v-app-bar>
 
     <v-main>
-      <home/>
+      <router-view></router-view>
     </v-main>
   </v-app>
 </template>
@@ -17,13 +17,6 @@
 
 export default {
   name: 'App',
-
-  components: {
-    home: () => import(
-            '@/pages/Home'
-        ),
-  },
-
   data: () => ({
     //
   }),
