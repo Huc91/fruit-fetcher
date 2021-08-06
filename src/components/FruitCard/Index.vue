@@ -5,13 +5,14 @@
       max-width="374"
     >
       <v-img
+        v-if="fruit.image"
         height="250"
         :src="fruit.image"
         :lazy-src="fruit.image"
       >
       </v-img>
 
-      <v-card-title>{{ fruit.name }}</v-card-title>
+      <v-card-title v-if="fruit.name">{{ fruit.name }}</v-card-title>
 
       <v-card-actions>
         <v-btn
