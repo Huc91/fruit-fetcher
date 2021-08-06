@@ -37,6 +37,11 @@ export default {
         let count = 0;
 
         const filteredData = [];
+        /*
+        * I saw that real fruits could also be nested deep far
+        * in the list data structure. So i need to traverse the list.
+        * I could have used an algorith written by me but why reinvent the wheel?
+        */
         traverse(data).forEach(
           function(node) {
             if (node.isFruit) {
