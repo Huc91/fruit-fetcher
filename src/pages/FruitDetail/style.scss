@@ -1,0 +1,15 @@
+.detail-page {
+  height: 100%;
+
+  &__container {
+    margin: 4rem;
+  }
+  &__title {
+    font-size: 8rem;
+  }
+  &__description {
+    font-size: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
