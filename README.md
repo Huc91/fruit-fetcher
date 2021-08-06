@@ -19,6 +19,5 @@ npm run build
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### updated branch to use to check the result of the challenge
+`feature/challenge`
