@@ -1,11 +1,12 @@
 <template>
   <div class="index-page">
-    <h1 class="index-page__hero">My Tuttifrutti party</h1>
+    <h1 class="index-page__hero">MY TUTTI FRUTTI PARTY</h1>
     <template v-if="!loading">
       <fruit-card
         v-for="fruit in fruitData"
         :key="fruit.id"
         :fruit="fruit"
+        @call-to-action-click="goToDetail(fruit)"
       />
     </template>
     <span v-else>Loading...</span>
@@ -82,5 +83,5 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style scoped lang="scss" src="./style.scss">
 </style>

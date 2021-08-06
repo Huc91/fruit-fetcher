@@ -1,0 +1,10 @@
+.index-page {
+  background: rgb(97,34,195);
+  background: linear-gradient(125deg, rgba(97,34,195,1) 0%, rgba(168,60,181,1) 15%, rgba(98,183,209,1) 31%, rgba(246,131,103,1) 48%, rgba(209,202,20,1) 63%, rgba(210,236,57,1) 81%, rgba(253,187,45,1) 100%);
+  &__hero {
+    font-size: 12rem;
+    font-weight: 400;
+    line-height: 12rem;
+    padding-bottom: 6rem;
+  }
+}
