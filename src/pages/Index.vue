@@ -1,5 +1,5 @@
 <template>
-  <div class="index-page">
+  <v-main class="index-page">
     <h1 class="index-page__hero">MY TUTTI FRUTTI PARTY</h1>
     <template v-if="!loading">
       <fruit-card
@@ -10,7 +10,7 @@
       />
     </template>
     <span v-else>Loading...</span>
-  </div>
+  </v-main>
 </template>
 
 <script>
