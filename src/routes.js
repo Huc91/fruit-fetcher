@@ -2,16 +2,16 @@ const routes = [
   {
         // default
         path: '/',
-        name: 'home',
+        name: 'index',
         component: () => import(
-            '@/pages/Home'
+            '@/pages/Index'
         ),
     },
     {
       path: '/fruit-detail/:id',
       name: 'Fruit detail',
       component: () => import(
-          '@/pages/FruitDetail'
+          '@/pages/FruitDetail/Index.vue'
       ),
     },
 ];

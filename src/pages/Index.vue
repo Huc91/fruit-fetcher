@@ -1,6 +1,6 @@
 <template>
   <div class="index-page">
-    <h1>My Tuttifrutti party</h1>
+    <h1 class="index-page__hero">My Tuttifrutti party</h1>
     <template v-if="!loading">
       <fruit-card
         v-for="fruit in fruitData"
@@ -16,14 +16,16 @@
 import * as traverse from 'traverse'
 
 export default {
-  name: "Index",
-  component: {
-    fruitCard: () => import('@/components/FruitCard')
-  },
+  name: 'Index',
   data() {
       return {
         loading: false,
       };
+  },
+  components: {
+    'fruit-card': () => import(
+      '@/components/FruitCard/Index'
+    )
   },
   methods: {
     async getFruits(){
