@@ -2,33 +2,11 @@
   <div class="index-page">
     <h1>My Tuttifrutti party</h1>
     <template v-if="!loading">
-    <v-card
-      elevation="2"
-      v-for="fruit in fruitData"
-      :key="fruit.id"
-      class="mx-auto my-12"
-      max-width="374"
-    >
-    <v-img
-      height="250"
-      :src="fruit.image"
-      :lazy-src="fruit.image"
-    >
-    </v-img>
-
-    <v-card-title>{{ fruit.name }}</v-card-title>
-
-    <v-card-actions>
-      <v-btn
-        color="deep-purple lighten-2"
-        text
-        @click="goToDetail(fruit)"
-      >
-        See more about it!
-      </v-btn>
-    </v-card-actions>
-
-    </v-card>
+      <fruit-card
+        v-for="fruit in fruitData"
+        :key="fruit.id"
+        :fruit="fruit"
+      />
     </template>
     <span v-else>Loading...</span>
   </div>
@@ -39,6 +17,9 @@ import * as traverse from 'traverse'
 
 export default {
   name: "Index",
+  component: {
+    fruitCard: () => import('@/components/FruitCard')
+  },
   data() {
       return {
         loading: false,
